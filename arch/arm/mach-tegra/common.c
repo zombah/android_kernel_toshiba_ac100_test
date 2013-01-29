@@ -448,14 +448,23 @@ void __init tegra_init_early(void)
 	   handler initializer is not called, so do it here for non-SMP. */
 	tegra_cpu_reset_handler_init();
 #endif
+printk("fuse init start\n");
 	tegra_init_fuse();
+printk("gpio resume init start\n");
 	tegra_gpio_resume_init();
+printk("init clock start\n");
 	tegra_init_clock();
+printk("init pinmux start\n");
 	tegra_init_pinmux();
+printk("clk init start\n");
 	tegra_clk_init_from_table(common_clk_init_table);
+printk("init power start\n");
 	tegra_init_power();
+printk("init cache start\n");
 	tegra_init_cache(true);
+printk("init ahb gizmo start\n");
 	tegra_init_ahb_gizmo_settings();
+printk("init debug uart start\n");
 	tegra_init_debug_uart_rate();
 }
 
