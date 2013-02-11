@@ -275,17 +275,23 @@ void machine_halt(void)
 	machine_shutdown();
 	while (1);
 }
+#ifdef CONFIG_MACH_GROUPER
 extern unsigned battery_cable_status;
+#endif
 void machine_power_off(void)
 {
+#ifdef CONFIG_MACH_GROUPER
 	if(!battery_cable_status){
+#endif
 		machine_shutdown();
 		if (pm_power_off)
 			pm_power_off();
+#ifdef CONFIG_MACH_GROUPER
 	}else{
 		printk("machine_power_off:go to charger mode!");
 		machine_restart("chrager-mode");
 	}
+#endif
 }
 
 void machine_restart(char *cmd)
