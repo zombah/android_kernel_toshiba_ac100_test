@@ -120,7 +120,7 @@ void read_hw_version(void)
 #define BATTERY_CALLBACK_ENABLED 0
 
 /* Enable or disable the callback for the battery driver. */
-#define TOUCH_CALLBACK_ENABLED 1
+#define TOUCH_CALLBACK_ENABLED 0
 
 #if BATTERY_CALLBACK_ENABLED
 extern void battery_callback(unsigned cable_status);
