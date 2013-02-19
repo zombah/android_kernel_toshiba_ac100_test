@@ -221,7 +221,7 @@ static irqreturn_t tegra_ehci_irq (struct usb_hcd *hcd)
 
 	irq_status = ehci_irq(hcd);
 
-	if (pmc_remote_wakeup || tegra->phy->usb_phy_type == TEGRA_USB_PHY_TYPE_HSIC) {
+	if (pmc_remote_wakeup || tegra->phy->usb_phy_type == TEGRA_USB_PHY_TYPE_HSIC || tegra->phy->usb_phy_type == TEGRA_USB_PHY_TYPE_LINK_ULPI) {
 		ehci->controller_remote_wakeup = false;
 	}
 
